@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python_utilities"
+version = "0.0.1"
+dependencies = [
+"sqlalchemy",
+"pymysql",
+"pandas",
+"requests"
+]
+authors = [ {name = "Joseph Cocozza", email = "jcocozza47@gmail.com"} ]
+description="A package to reduce the amount of boilerplate code I have to write for repetitive tasks, like connecting to databases"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent"
+    ]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
