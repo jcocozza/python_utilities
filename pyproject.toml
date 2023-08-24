@@ -9,7 +9,8 @@ dependencies = [
 "sqlalchemy",
 "pymysql",
 "pandas",
-"requests"
+"requests",
+"jinja2"
 ]
 authors = [ {name = "Joseph Cocozza", email = "jcocozza47@gmail.com"} ]
 description="A package to reduce the amount of boilerplate code I have to write for repetitive tasks, like connecting to databases"
