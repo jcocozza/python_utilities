@@ -15,7 +15,7 @@ authors = [ {name = "Joseph Cocozza", email = "jcocozza47@gmail.com"} ]
 description="A package to reduce the amount of boilerplate code I have to write for repetitive tasks, like connecting to databases"
 readme = "README.md"
 classifiers = [
-    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3",
     "Operating System :: OS Independent"
     ]
 
