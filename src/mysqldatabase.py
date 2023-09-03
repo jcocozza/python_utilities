@@ -9,14 +9,12 @@ class MySQLConnector:
     """
     Connect to a MySQL database via sqlalchemy
     """
-    def __init__(self, username: str, password: str, host: str, database_name: str = None) -> None:
+    def __init__(self, username: str, password: str, host: str, database_name: str) -> None:
         """
-        optionally pass the database name if you want your sql code to only have to worry about table name
-
         :param username: Your username
         :param password: Your password
         :param host: The database host address
-        :param database_name: (Optional) The name of the database to connect to
+        :param database_name: [Optional] The name of the database to connect to
         """
         self.username = username
         self.password = password
@@ -45,10 +43,11 @@ class MySQLConnector:
             return engine
         except Exception as ex:
             logging.error(f'Failed to create engine connection: {ex}')
+            raise(ex)
 
-    def execute(self, sql: str) -> None:
+    def execute(self, sql: str) -> sqlalchemy.CursorResult:
         """
-        Run a sql statment.
+        Run a sql statement.
 
         No return.
 
@@ -57,13 +56,13 @@ class MySQLConnector:
         :param sql: A string of valid sql syntax
         """
         with self.engine.connect() as conn:
-            conn.execute(sqlalchemy.text(sql))
+            res = conn.execute(sqlalchemy.text(sql))
             conn.commit()
-        return None
+        return res
 
     def query(self, sql: str) -> sqlalchemy.CursorResult:
         """
-        Run a sql statment.
+        Run a sql statement.
 
         Used with:
         - .fetchall()
